@@ -11,13 +11,13 @@ La dashboard di Comare mostrava lo stato dei device solo come schede (card), una
 
 ## **Il progetto**
 
-Una vista alternativa sotto forma di Heatmap della sezione Devices, in cui ogni riga è un device e ogni colonna un istante di campionamento. L'obiettivo è quello di fornire all'utente una rappresentazione temporale dei dispositivi monitorati, in modo tale da inviduare a colpo d'occhio malfunzionamenti ricorrenti ed interruzioni momentanee.
+Una vista alternativa sotto forma di Heatmap della sezione Devices, in cui ogni riga è un device e ogni colonna un istante di campionamento. L'obiettivo è quello di fornire all'utente una rappresentazione temporale dei dispositivi monitorati, in modo tale da individuare a colpo d'occhio malfunzionamenti ricorrenti ed interruzioni momentanee.
 
 ![](intro.gif)
 
 - **Colore cella**: Ogni cella rappresenta lo stato attuale del dispositivo in quell'istante di campionamento. Per **stato** si intende il RTT. La cella è colorata con una scala continua verde → giallo → rosso per RTT da 0 a 300 ms. Eventuali `down` / `timeout` vengono rappresentati come rossi fissi, mentre una assenza di dati grigio scuro.
   
-  Nel caso in cui nell'istante di campionamento non sia presente un valore "fresco" fornito dal processo monitor, la visualizzazione rappresentarà quell'istante come una cella più larga.  Quando arriva un nuovo campione reale la riga torna a celle separate. Così si distingue a colpo d'occhio un valore "fresco" da uno riportato avanti nel tempo.
+  Nel caso in cui nell'istante di campionamento non sia presente un valore "fresco" fornito dal processo monitor, la visualizzazione rappresenterà quell'istante come una cella più larga.  Quando arriva un nuovo campione reale la riga torna a celle separate. Così si distingue a colpo d'occhio un valore "fresco" da uno riportato avanti nel tempo.
 
 - **Statistiche**: Per ogni device, sul lato sinistro della visualizzazione, sono rappresentate le metriche calcolate sul buffer: **AVG-RTT**, **MAX-RTT**, **UPTIME%**.
 - **Asse temporale**: Nella parte bassa della visualizzazione troviamo un asse temporale con riferimenti dinamici, calcolati in funzione dell'intervallo di campionamento e della larghezza disponibile della UI.
@@ -38,7 +38,7 @@ Una vista alternativa sotto forma di Heatmap della sezione Devices, in cui ogni 
 
 Il monitoraggio dei device è svolto esclusivamente dal processo `comare.monitor`, che esegue le probe seguendo la configurazione del sistema, dove ogni device ha il proprio intervallo di monitoraggio e timeout. Il frontend non monitora nulla: si limita a visualizzare i risultati che il processo monitor pubblica.
 
-La feature è stata inserita in Comare mantenendo un basso accoppiamento. Essa si limita a ricevere gli eventi DOM che `app.js`, il modulo della dashboard già presente, emette quando riceve i dati. L'heatmap è stata realizata usando la libreria **d3.js**.
+La feature è stata inserita in Comare mantenendo un basso accoppiamento. Essa si limita a ricevere gli eventi DOM che `app.js`, il modulo della dashboard già presente, emette quando riceve i dati. L'heatmap è stata realizzata usando la libreria **d3.js**.
 
 ```mermaid
 flowchart LR
