@@ -13,7 +13,7 @@ La dashboard di Comare mostrava lo stato dei device solo come schede (card), una
 
 Una vista alternativa sotto forma di Heatmap della sezione Devices, in cui ogni riga è un device e ogni colonna un istante di campionamento. L'obiettivo è quello di fornire all'utente una rappresentazione temporale dei dispositivi monitorati, in modo tale da inviduare a colpo d'occhio malfunzionamenti ricorrenti ed interruzioni momentanee.
 
-<video src="intro.mov" controls muted width="100%"></video>
+![](intro.gif)
 
 - **Colore cella**: Ogni cella rappresenta lo stato attuale del dispositivo in quell'istante di campionamento. Per **stato** si intende il RTT. La cella è colorata con una scala continua verde → giallo → rosso per RTT da 0 a 300 ms. Eventuali `down` / `timeout` vengono rappresentati come rossi fissi, mentre una assenza di dati grigio scuro.
   
@@ -26,11 +26,11 @@ Una vista alternativa sotto forma di Heatmap della sezione Devices, in cui ogni 
 
 ### Menu `Sample` (1, 5, 10, 30, 60 s): cambia l'intervallo di campionamento della visualizzazione, cioè la durata di una cella, ed azzera la heatmap.
 
-<video src="campionamento.mov" controls muted width="100%"></video>
+![](campionamento.gif)
 
 ### Adattamento asse temporale in funzione della dimensione della finestra
 
-<video src="resize.mov" controls muted width="100%"></video>
+![](resize.gif)
 
 ## Implementazione
 
